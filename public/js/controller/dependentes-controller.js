@@ -17,21 +17,4 @@ class DependenteController{
 
 		return;
 	}
-
-	getUserByLogin(login, senha){
-		let usuarioDao = new UsuarioDao();
-		if(login.length > 3 && senha.match(/[A-z0-9]+/)){
-			const usuario = usuarioDao.getUserByLogin(login, senha);
-			return usuario;
-		}
-	}
-
-	setLoginSession(user){
-		sessionStorage.setItem('usuarioLogado', user.nome);
-	}
-
-	setLogoutSession(){
-		sessionStorage.removeItem('usuarioLogado');
-		window.location = '../../index.html';
-	}
 }
