@@ -42,4 +42,23 @@ class DependentesDao {
 			return error;
 		}
 	}
+
+	getDependentes(userLogado){
+		let arrUsers = JSON.parse(window.localStorage.usersList);
+		try {
+			let arrdependentes = [];
+			arrUsers.forEach((userSaved) => {
+				if(userSaved.nome === userLogado){
+					arrdependentes =  userSaved.dependentes;
+				}
+			});
+			if(arrdependentes) {
+				return arrdependentes;
+			} else {
+				throw 'Sem filiação para o usuário logado';
+			}
+		} catch (error) {
+			return error;
+		}
+	}
 }

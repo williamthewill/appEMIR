@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <title>EMIR</title>
+        <script src="../js/model/dependente.js"></script>
+        <script src="../js/model/dependentes-dao.js"></script>
+        <script src="../js/controller/dependentes-controller.js"></script>
+        <script src="../js/controller/usuario-controller.js"></script>
+        <script src="./dependentes.js"></script>
+        <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+	</head>
+	<body style="background-color: #1a75cc; font-family: sans-serif; color:white; padding: 10px;">
+		<header>
+            <div class="header-login user-logged" style="width: 100%; height:30px; background-color: darkslategrey">
+                <span class="salutation-user" style="text-align: center; font-size: 12px; padding: 5px; float: right;">bem vindo william</span>
+            </div>
+			<h1>Emissor de Imposto de Renda</h1>
+		</header>
+		<article>
+                <table class="table">
+                        <thead>
+                          <tr>
+                            <th>nome</th>
+                            <th>Filiação</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
+		</article>
+		<footer>
+            <a href="../../index.html" style="text-decoration: none; display:inline-block; top:30px">
+                <button class="btn btn-lg btn-primary btn-block">Voltar para a home</button>
+            </a>
+            <script type="application/javascript">listarDependentes()</script>
+		</footer>
+	</body>
+</html>

@@ -16,9 +16,9 @@ class UsuarioDao {
 	}
 
 	getUserByLogin(login, senha){
-		let arrUsers = JSON.parse(window.localStorage.usersList);
 		let user = {};
 		try {
+			let arrUsers = JSON.parse(window.localStorage.usersList);
 			user = arrUsers.filter((userSaved) => {
 				if(userSaved.login === login && userSaved.senha === senha){
 					return true;
