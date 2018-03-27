@@ -1,4 +1,5 @@
 /*global UsuarioController*/
+/*eslint no-unused-vars: */
 
 class DependentesDao {
 

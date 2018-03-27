@@ -1,4 +1,5 @@
 /*global UsuarioController*/
+/*eslint no-unused-vars: */
 
 function login (scope){
 	const that = scope;

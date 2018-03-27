@@ -1,4 +1,5 @@
 /*global UsuarioDao Usuario*/
+/*eslint no-unused-vars: */
 /*eslint-env es6*/
 
 class UsuarioController {

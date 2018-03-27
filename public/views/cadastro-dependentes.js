@@ -1,5 +1,5 @@
 /*global DependenteController*/
-
+/*eslint no-unused-vars: */
 
 function realizarCadastro() {
 	var nome = document.querySelector('#InputName').value;

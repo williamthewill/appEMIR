@@ -1,3 +1,5 @@
+/*eslint no-unused-vars: */
+
 class Dependente {
 	constructor(nome, filiacao) {
 		if(

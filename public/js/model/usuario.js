@@ -1,3 +1,5 @@
+/*eslint no-unused-vars: */
+
 class Usuario {
 	constructor(nome, email, login, senha) {
 		if(

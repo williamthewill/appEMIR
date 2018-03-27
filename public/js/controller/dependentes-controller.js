@@ -1,4 +1,5 @@
 /*global Dependente DependentesDao UsuarioController*/
+/*eslint no-unused-vars: */
 /*eslint-env es6*/
 
 class DependenteController{
