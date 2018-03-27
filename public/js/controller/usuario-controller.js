@@ -1,0 +1,44 @@
+/*global UsuarioDao Usuario*/
+/*eslint-env es6*/
+
+class UsuarioController {
+	
+	salvarUsuario(nome, email, login, senha, confSenha) {
+		let usuarioDao = new UsuarioDao();
+		if(arguments.length === 5) {
+			if(
+				nome.length > 3 &&
+				email.match(/^[a-z0-9]+@[a-z]+.com.br|com$/) &&
+				login.length > 3 &&
+				senha.match(/[A-z0-9]+/) &&
+				senha === confSenha
+			) {
+				const novoUsuario = new Usuario(nome, email, login, senha);
+				return usuarioDao.save(novoUsuario);
+			}
+		}
+
+		return;
+	}
+
+	getUserByLogin(login, senha) {
+		let usuarioDao = new UsuarioDao();
+		if(login.length > 3 && senha.match(/[A-z0-9]+/)) {
+			const usuario = usuarioDao.getUserByLogin(login, senha);
+			return usuario;
+		}
+	}
+
+	setLoginSession(user) {
+		sessionStorage.setItem('usuarioLogado', user.nome);
+	}
+
+	setLogoutSession() {
+		sessionStorage.removeItem('usuarioLogado');
+		window.location = '../../index.html';
+	}
+
+	getUserSession() {
+		return sessionStorage.getItem('usuarioLogado');
+	}
+}

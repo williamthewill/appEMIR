@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>EMIR</title>
+		<script src="./public/views/realizar-login.js"></script>
+		<script src="./public/js/model/usuario.js"></script>
+        <script src="./public/js/model/usuario-dao.js"></script>
+        <script src="./public/js/controller/usuario-controller.js"></script>  
+	</head>
+	<body style="background-color: #1a75cc; font-family: sans-serif; color:white;">
+		<header>
+			<h1>Emissor de Imposto de Renda</h1>
+		</header>
+		<article>
+			<p>
+				Bem vindo ao EMIR, emissor de imposto de renda, 
+				você pode começar se cadastrando ou faça login e usufrua das funcionalidades aqui disponíveis.
+			</p>
+			<a href="./public/views/cadastro-usuario.html" style="margin-bottom:10px; display: inline-block;">
+				<button>Cadastrar-se</button>
+			</a>
+			<br/>
+			<div class="form-login">
+				<label style="display: inline-block; margin-right: 9px; margin-bottom: 10px; width: 51px;">Login: </label><input class="login" type="text" style="width: 200px"><br>
+				<label style="display: inline-block; margin-right: 9px; width: 51px;">Senha: </label><input class="password" type="password" style="width: 200px"><br>
+				<button class="button-login" onclick="login(this)" style="margin-top: 10px; width: 100px;">Logar-se</button>
+			</div>
+		</article>
+		<footer>
+		</footer>
+	</body>
+</html>

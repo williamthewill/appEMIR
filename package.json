@@ -1,0 +1,19 @@
+{
+  "name": "app-electron",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "Electron",
+    "app",
+    "begin"
+  ],
+  "author": "william muller",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "~1.8.2"
+  }
+}
