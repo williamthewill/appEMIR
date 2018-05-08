@@ -12,7 +12,9 @@ class DependentesController {
 			) {
 				const dependente = new Dependente(nome, filiacao);
 				const dependenteDao = new DependentesDao();
-				return dependenteDao.save(dependente);
+				return dependenteDao.save(dependente).then(function(data){
+					return data;
+				});
 			}
 		}
 
@@ -24,8 +26,9 @@ class DependentesController {
 		let userSession = usuarioController.getUserSession();
 		if(userSession) {
 			const dependenteDao = new DependentesDao();
-			let arrDepenendetes = dependenteDao.getDependentes(userSession);
-			return arrDepenendetes;
+			return dependenteDao.getDependentes(userSession).then(function(data){
+				return data;
+			});
 		}
 	}
 }

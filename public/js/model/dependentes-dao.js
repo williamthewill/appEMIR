@@ -1,10 +1,12 @@
-/*global UsuarioController*/
+/*global UsuarioController DatabaseConnetion*/
 /*eslint no-unused-vars: */
 
+
 class DependentesDao {
-
+	
 	save(dependente) {
-
+		const client = new DatabaseConnetion().connection();
+		
 		if(!window.localStorage) return;
 
 		window.localStorage.usersList = window.localStorage.usersList || '[]';
@@ -20,7 +22,15 @@ class DependentesDao {
 
 		window.localStorage.usersList = JSON.stringify(usersList);
 		
-		return true;
+		return new Promise(function(resolve){
+			client.transaction(function (tx) {
+				let id = Math.floor(Date.now() / 1000);
+				tx.executeSql(`INSERT INTO dependente (id, nome, filiacao) VALUES (${id}, "${dependente.nome}", "${dependente.filiacao}")`);
+				resolve(true);
+			});
+
+		});
+		
 	}
 
 	getDependentesByFiliacao(userLogado, filiacao){
@@ -43,22 +53,26 @@ class DependentesDao {
 		}
 	}
 
-	getDependentes(userLogado){
+	getDependentes(userLogado) {
+		const client = new DatabaseConnetion().connection();
 		let arrUsers = JSON.parse(window.localStorage.usersList);
-		try {
-			let arrdependentes = [];
-			arrUsers.forEach((userSaved) => {
-				if(userSaved.nome === userLogado){
-					arrdependentes =  userSaved.dependentes;
-				}
+		return new Promise(function(resolve){
+			client.transaction(function (tx) {
+				let id = Math.floor(Date.now() / 1000);
+				tx.executeSql('SELECT * FROM dependente', [], function (tx, results) {
+					let arrdependentes = results.rows;
+					arrUsers.forEach((userSaved) => {
+						if(userSaved.nome === userLogado){
+							arrdependentes =  userSaved.dependentes;
+						}
+					});
+					if(arrdependentes) {
+						resolve(arrdependentes);
+					} else {
+						throw 'Sem filiação para o usuário logado';
+					}
+				}, null);
 			});
-			if(arrdependentes) {
-				return arrdependentes;
-			} else {
-				throw 'Sem filiação para o usuário logado';
-			}
-		} catch (error) {
-			return error;
-		}
+		});
 	}
 }
