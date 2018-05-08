@@ -1,3 +1,5 @@
+/*eslint no-unused-vars: */
+
 class CalculadoraFinanceira {
 	constructor (constas){
 		this.contas = constas;
@@ -5,4 +7,5 @@ class CalculadoraFinanceira {
 	
 	aliquota(){}
 	impostoRenda(){}
+	somaDeDebitos(){}
 }

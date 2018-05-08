@@ -1,3 +1,5 @@
+/*eslint no-unused-vars: */
+
 class DatabaseConnetion {	
 	connection() {
 		let client = openDatabase('emir', '1.0', 'emir DB', 2 * 1024 * 1024);
@@ -16,6 +18,15 @@ class DatabaseConnetion {
 					id unique,
 					nome text,
 					filiacao text
+				)`
+			);
+
+			tx.executeSql(
+				`CREATE TABLE IF NOT EXISTS contas (
+					id unique,
+					nome text,
+					valor text,
+					vencimento text
 				)`
 			);
 		});

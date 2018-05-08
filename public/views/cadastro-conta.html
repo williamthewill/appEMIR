@@ -3,15 +3,19 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>App Electron - cadastro Usuário</title>
-        <script src="../js/model/usuario.js"></script>
-        <script src="../js/model/usuario-dao.js"></script>
-        <script src="../js/controller/usuario-controller.js"></script>    
-        <script src="./cadastro-usuario.js"></script>
+        <script src="../js/model/contas.js"></script>
+        <script src="../js/model/contas-dao.js"></script>
+        <script src="../js/controller/contas-controller.js"></script>
+        <script src="./contas.js"></script>
+        <script src="../js/database/connection.js"></script>
         <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
 	</head>
-	<body style="background-color: #1a75cc; font-family: sans-serif; color:white; padding: 10px;">
+	<body style="background-color: #1a75cc; font-family: sans-serif; color:white;">
 		<header>
-			<h1>View de cadastro de usuario</h1>
+            <div class="header-login user-logged" style="width: 100%; height:30px; background-color: darkslategrey">
+                <span class="salutation-user" style="text-align: center; font-size: 12px; padding: 5px; float: right;">bem vindo william</span>
+            </div>
+			<h1>View de cadastro de conta</h1>
 		</header>
 		<article>
             <form role="form" action="" method="post" >
@@ -19,35 +23,21 @@
                     <div class="form-group">
                         <label for="InputName">Nome Completo</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Nome Completo" required>
+                            <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Nome da Conta" required>
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="InputEmail">Seu Email</label>
+                        <label for="InputValor">Valor</label>
                         <div class="input-group">
-                            <input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Email" required  >
+                            <input type="text" class="form-control" id="InputValor" name="InputValor" placeholder="Valor da conta" required  >
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="InputLogin">Seu Login</label>
+                        <label for="InputVencimento">Vencimento</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="InputLogin" name="InputLogin" placeholder="Login" required  >
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="InputSenha">Sua Senha</label>
-                        <div class="input-group">
-                            <input type="password" class="form-control" id="InputSenha" name="InputSenha" placeholder="Senha" required  >
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="InputSenha">Confirme sua Senha</label>
-                        <div class="input-group">
-                            <input type="password" class="form-control" id="InputConfSenha" name="InputConfSenha" placeholder="Confirmar Senha" required  >
+                            <input type="text" class="form-control" id="InputVencimento" name="InputVencimento" placeholder="Vencimento da conta" required  >
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
                         </div>
                     </div>

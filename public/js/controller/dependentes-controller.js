@@ -26,9 +26,7 @@ class DependentesController {
 		let userSession = usuarioController.getUserSession();
 		if(userSession) {
 			const dependenteDao = new DependentesDao();
-			return dependenteDao.getDependentes(userSession).then(function(data){
-				return data;
-			});
+			return dependenteDao.getDependentes(userSession).then(data => data);
 		}
 	}
 }
