@@ -14,8 +14,7 @@ class UsuarioController {
 				senha.match(/[A-z0-9]+/) &&
 				senha === confSenha
 			) {
-				const novoUsuario = new Usuario(nome, email, login, senha);
-				return usuarioDao.save(novoUsuario);
+				return usuarioDao.save(nome, email, login, senha);
 			}
 		}
 

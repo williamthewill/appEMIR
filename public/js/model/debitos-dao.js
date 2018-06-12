@@ -1,14 +1,17 @@
 /*eslint no-unused-vars: */
 /* global DatabaseConnetion */
 
-class ContasDAO{
-	save(conta){
-		let client = new DatabaseConnetion().connection();
-		
+class DebitosDAO{
+	constructor(){
+		this.client = new DatabaseConnetion().connection();
+	}
+	save(nome, valor, vencimento){
+		let client = this.client
+		let debito = new Debito(nome, valor, vencimento);
 		return new Promise(function(resolve){
 			client.transaction(function (tx) {
 				let id = Math.floor(Date.now() / 1000);
-				tx.executeSql(`INSERT INTO contas (id, nome, valor, vencimento) VALUES (${id}, "${conta.nome}", "${conta.valor}", "${conta.vencimento}")`);
+				tx.executeSql(`INSERT INTO contas (id, nome, valor, vencimento) VALUES (${id}, "${debito.nome}", "${debito.valor}", "${debito.vencimento}")`);
 				resolve(true);
 			});
 
@@ -18,15 +21,14 @@ class ContasDAO{
 	delete(){}
 	
 	list(){
-		let client = new DatabaseConnetion().connection();
-
+		let client = this.client
 		return new Promise(function(resolve){
 			client.transaction(function (tx) {
 				let id = Math.floor(Date.now() / 1000);
 				tx.executeSql('SELECT * FROM contas', [], function (tx, results) {
-					let arrContas = results.rows;
-					if(arrContas) {
-						resolve(arrContas);
+					let arrDebitos = results.rows;
+					if(arrDebitos) {
+						resolve(arrDebitos);
 					} else {
 						throw 'Sem filiação para o usuário logado';
 					}

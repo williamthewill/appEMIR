@@ -1,25 +1,20 @@
 /*eslint no-unused-vars: */
-/* global ContasController */
+/* global DebitosController */
 
-function calcularAliquota(){
+function calcularAliquota(receita){
 	const porcentagemContribuicao = 0.06;
-	let receita = parseFloat(document.querySelector('.aliquota').value);
-
+	
 	let aliquota = receita*porcentagemContribuicao;
 
-	document.querySelector('.valor-aliquota').innerText = aliquota;
+	return aliquota;
 }
 
 function impostoRenda(){}
 
-function somaDeDebitos() {
-	let contasController = new ContasController();
-
-	contasController.listarContas().then(listaContas => {
-		let debitoTotal = 0;
-		for(let i = 0; i < listaContas.length; i++) {
-			debitoTotal += parseFloat(listaContas[i].valor);
-		}
-		document.querySelector('.total-contas').innerText = `R$ ${debitoTotal} reais`;
-	});
+function somaDeDebitos(listaDebitos) {
+	let debitoTotal = 0;
+	for(let i = 0; i < listaDebitos.length; i++) {
+		debitoTotal += parseFloat(listaDebitos[i].valor);
+	}
+	return debitoTotal
 }

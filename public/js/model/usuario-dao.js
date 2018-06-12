@@ -2,8 +2,12 @@
 
 class UsuarioDao {
 
-	save(user) {
+	constructor(){
+		this.client = new DatabaseConnetion().connection();
+	}
 
+	save(nome, email, login, senha) {
+		const user = new Usuario(nome, email, login, senha);
 		if(!window.localStorage) return;
 
 		window.localStorage.usersList = window.localStorage.usersList || '[]';

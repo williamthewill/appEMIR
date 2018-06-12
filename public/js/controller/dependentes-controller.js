@@ -10,9 +10,8 @@ class DependentesController {
 			if(
 				nome.length > 3 && filiacao.length >= 3
 			) {
-				const dependente = new Dependente(nome, filiacao);
 				const dependenteDao = new DependentesDao();
-				return dependenteDao.save(dependente).then(function(data){
+				return dependenteDao.save(nome, filiacao).then(function(data){
 					return data;
 				});
 			}

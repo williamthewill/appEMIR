@@ -1,4 +1,4 @@
-/* global ContasController */
+/* global DebitosController */
 /*eslint no-unused-vars: */
 
 function realizarCadastro() {
@@ -6,23 +6,23 @@ function realizarCadastro() {
 	var valor = document.querySelector('#InputValor').value;
 	var vencimento = document.querySelector('#InputVencimento').value;
 
-	var contaController = new ContasController();
+	var debitosController = new DebitosController();
 	
-	contaController.salvarConta(nome, valor, vencimento).then(() => {
+	debitosController.salvarDebito(nome, valor, vencimento).then(() => {
 		window.location = './main-app.html';
 	}).catch(() => {
 		throw 'Os dados informados não correspondem';
 	});
 }
 
-function listarContas() {
+function listarDebitos() {
 	let tbody = document.querySelector('.table tbody');
-	let contasController = new ContasController();
-	contasController.listarContas().then(function(arrContas){
-		if(typeof arrContas === 'object') {
-			for(var i = 0; i < arrContas.length; i++) {
+	let debitosController = new DebitosController();
+	debitosController.listarDebitos().then(function(arrDebitos){
+		if(typeof arrDebitos === 'object') {
+			for(var i = 0; i < arrDebitos.length; i++) {
 				let htmlDpenendente = document.createElement('tr');
-				htmlDpenendente.innerHTML = '<td>'+arrContas[i].nome+'</td><td>'+arrContas[i].valor+'</td><td>'+arrContas[i].vencimento+'</td>';
+				htmlDpenendente.innerHTML = '<td>'+arrDebitos[i].nome+'</td><td>'+arrDebitos[i].valor+'</td><td>'+arrDebitos[i].vencimento+'</td>';
 				tbody.appendChild(htmlDpenendente);
 			}
 		}

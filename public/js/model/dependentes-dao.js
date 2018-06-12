@@ -4,9 +4,13 @@
 
 class DependentesDao {
 	
-	save(dependente) {
-		const client = new DatabaseConnetion().connection();
-		
+	constructor(){
+		this.client = new DatabaseConnetion().connection();
+	}
+
+	save(nome, filiacao) {
+		const client = this.client
+		const dependente = new Dependente(nome, filiacao);
 		if(!window.localStorage) return;
 
 		window.localStorage.usersList = window.localStorage.usersList || '[]';
@@ -54,7 +58,7 @@ class DependentesDao {
 	}
 
 	getDependentes(userLogado) {
-		const client = new DatabaseConnetion().connection();
+		const client = this.client
 		let arrUsers = JSON.parse(window.localStorage.usersList);
 		return new Promise(function(resolve){
 			client.transaction(function (tx) {

@@ -3,11 +3,12 @@
 	<head>
 		<meta charset="UTF-8">
         <title>EMIR</title>
-        <script src="../js/model/contas.js"></script>
-        <script src="../js/model/contas-dao.js"></script>
-        <script src="../js/controller/contas-controller.js"></script>
+        <script src="../js/model/debitos.js"></script>
+        <script src="../js/model/debitos-dao.js"></script>
+        <script src="../js/controller/debitos-controller.js"></script>
         <script src="../js/model/calculadora-financeira.js"></script>
         <script src="../js/database/connection.js"></script>
+        <script src="./calc-financeira.js"></script>
         <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
 	</head>
 	<body style="background-color: #1a75cc; font-family: sans-serif; color:white; padding: 10px;">
@@ -18,11 +19,11 @@
 			<h1>Emissor de Imposto de Renda</h1>
 		</header>
 		<article>
-            <label for="total-contas">Total de débitos:</label>
-            <label class="total-contas">R$ 105,20</label><br>
+            <label for="total-debitos">Total de débitos:</label>
+            <label class="total-debitos">R$ 00,00</label><br>
             <label for="aliquota">Calcular Alíquota:</label>
             <input type="text" class="aliquota" placeholder="insira seu receita anual">
-            <button class="btn calcular-aliquota" onclick="calcularAliquota()">Calcular</button><br>
+            <button class="btn calcular-aliquota" onclick="calcularAliquotaView()">Calcular</button><br>
             <label for="valor-aliquota">Valor da Alíquota:</label>
             <label class="valor-aliquota"></label>
 		</article>
@@ -34,7 +35,7 @@
                 <button class="btn btn-lg btn-primary btn-block">Voltar para a login</button>
             </a>
             <script>
-                somaDeDebitos()
+                somaDeDebitosView()
             </script>
 		</footer>
 	</body>

@@ -1,6 +1,6 @@
 /*eslint no-unused-vars: */
 
-class Conta {
+class Debito {
 	constructor(nome, valor, vencimento) {
 		this.nome = nome;
 		this.valor = valor;
