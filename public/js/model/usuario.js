@@ -2,6 +2,10 @@
 
 class Usuario {
 	constructor(nome, email, login, senha) {
+		if(this.instance === true) {
+			return 'Usuário já foi instanciado';
+		}
+		
 		if(
 			nome.length > 3 &&
 			email.match(/^[a-z0-9]+@[a-z]+.com.br|com$/) &&
@@ -13,6 +17,7 @@ class Usuario {
 			this.login = login;
 			this.senha = senha;
 			this.dependentes = [];
+			this.instance = true;
 		} else {
 			return 'Usuário não pode ser criado';
 		}
