@@ -2,7 +2,7 @@
 
 class Usuario {
 	constructor(nome, email, login, senha) {
-		if(this.instance === true) {
+		if(this.instance) {
 			return 'Usuário já foi instanciado';
 		}
 		

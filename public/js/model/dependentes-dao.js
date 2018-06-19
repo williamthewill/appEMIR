@@ -62,14 +62,8 @@ class DependentesDao {
 		let arrUsers = JSON.parse(window.localStorage.usersList);
 		return new Promise(function(resolve){
 			client.transaction(function (tx) {
-				let id = Math.floor(Date.now() / 1000);
 				tx.executeSql('SELECT * FROM dependente', [], function (tx, results) {
 					let arrdependentes = results.rows;
-					arrUsers.forEach((userSaved) => {
-						if(userSaved.nome === userLogado){
-							arrdependentes =  userSaved.dependentes;
-						}
-					});
 					if(arrdependentes) {
 						resolve(arrdependentes);
 					} else {

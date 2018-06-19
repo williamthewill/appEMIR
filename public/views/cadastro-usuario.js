@@ -10,11 +10,11 @@ function realizarCadastro() {
 
 	var usuarioController = new UsuarioController();
 	
-	switch (usuarioController.salvarUsuario(nome, email, login, senha, confSenha)) {
-	case true:
-		window.location = '../../index.html';
-		break;
-	default:
-		throw 'Os dados informados não correspondem';
-	}
+	usuarioController.salvarUsuario(nome, email, login, senha, confSenha).then((res) => {
+		if(res) {
+			window.location = '../../index.html';
+		} else {
+			throw 'Os dados informados não correspondem';
+		}
+	});
 }

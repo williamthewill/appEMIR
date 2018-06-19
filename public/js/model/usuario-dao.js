@@ -7,6 +7,7 @@ class UsuarioDao {
 	}
 
 	save(nome, email, login, senha) {
+		const client = this.client
 		const user = new Usuario(nome, email, login, senha);
 		if(!window.localStorage) return;
 
@@ -16,7 +17,13 @@ class UsuarioDao {
 		usersList.push(user);
 		window.localStorage.usersList = JSON.stringify(usersList);
 
-		return true;
+		return new Promise(function(resolve) {
+			client.transaction(function(tx) {
+				let id = Math.floor(Date.now() / 1000);
+				tx.executeSql(`INSERT INTO declarador (id, nome, email, login, senha) VALUES (${id}, "${nome}", "${email}", "${login}", "${senha}")`);
+				resolve(true);
+			})
+		})
 	}
 
 	getUserByLogin(login, senha){

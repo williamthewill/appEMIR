@@ -12,7 +12,9 @@ class CalculadoraFinanceira {
 		return aliquota;
 	}
 	
-	impostoRenda(){}
+	impostoRenda(aliquota, debitos){
+		return aliquota+debitos
+	}
 	
 	somaDeDebitos(listaDebitos) {
 		let debitoTotal = 0;

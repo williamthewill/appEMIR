@@ -8,6 +8,7 @@ class DatabaseConnetion {
 				`CREATE TABLE IF NOT EXISTS declarador (
 					id unique,
 					nome text,
+					email text,
 					login text,
 					senha text
 				)`
