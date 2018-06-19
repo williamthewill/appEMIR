@@ -21,9 +21,14 @@ function listarDependentes() {
 		if(typeof arrDependentes === 'object') {
 			for(var i = 0; i < arrDependentes.length; i++) {
 				let htmlDpenendente = document.createElement('tr');
-				htmlDpenendente.innerHTML = '<td>'+arrDependentes[i].nome+'</td><td>'+arrDependentes[i].filiacao+'</td>';
+				htmlDpenendente.innerHTML = '<td>'+arrDependentes[i].nome+'</td><td>'+arrDependentes[i].filiacao+'</td>'+'<td> <button type="button" onclick="remover('+`'${arrDependentes[i].nome}'`+')">Remover</button> </td>';
 				tbody.appendChild(htmlDpenendente);
 			}
 		}
 	});
+}
+
+function remover(nome) {
+	let dependenteController = new DependentesController();
+	dependenteController.deletarDependente(nome).then(() => window.location.reload());
 }

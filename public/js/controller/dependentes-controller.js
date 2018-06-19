@@ -28,4 +28,13 @@ class DependentesController {
 			return dependenteDao.getDependentes(userSession).then(data => data);
 		}
 	}
+
+	deletarDependente(nome) {
+		let usuarioController = new UsuarioController();
+		let userSession = usuarioController.getUserSession();
+		if(userSession) {
+			const dependenteDao = new DependentesDao();
+			return dependenteDao.deleteDependente(userSession, nome);
+		}
+	}
 }

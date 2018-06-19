@@ -2,9 +2,7 @@
 /* global DebitosController */
 
 class CalculadoraFinanceira {
-	constructor (){
-
-	}
+	constructor (){}
 	
 	calcularAliquota(receita){
 		const porcentagemContribuicao = 0.06;

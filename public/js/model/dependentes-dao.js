@@ -79,4 +79,17 @@ class DependentesDao {
 			});
 		});
 	}
+
+	deleteDependente(userLogado, nome) {
+		if(userLogado){
+			const client = this.client
+			return new Promise(function(resolve) {
+				client.transaction(function (tx) {
+					tx.executeSql(`DELETE FROM dependente WHERE nome="${nome}"`, [], function (tx, results){
+						resolve(true)
+					});
+				});
+			})
+		}
+	}
 }
