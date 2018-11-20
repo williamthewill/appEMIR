@@ -2,6 +2,8 @@
 /*eslint no-unused-vars: */
 /*eslint-env es6*/
 
+const axios = require('axios')
+
 class DependentesController {
 	
 	salvarDepenente(nome, filiacao) {
@@ -27,6 +29,14 @@ class DependentesController {
 			const dependenteDao = new DependentesDao();
 			return dependenteDao.getDependentes(userSession).then(data => data);
 		}
+	}
+
+	listarDependentesApi() {
+		return new Promise(resolve => {
+			axios.get('http://127.0.0.1:3000/user/dependents').then(dependentes => {
+				resolve(dependentes.data)
+			})
+		})
 	}
 
 	deletarDependente(nome) {

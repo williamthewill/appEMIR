@@ -18,11 +18,11 @@ function realizarCadastro() {
 function listarDebitos() {
 	let tbody = document.querySelector('.table tbody');
 	let debitosController = new DebitosController();
-	debitosController.listarDebitos().then(function(arrDebitos){
+	debitosController.listarDebitosApi().then(function(arrDebitos){
 		if(typeof arrDebitos === 'object') {
 			for(var i = 0; i < arrDebitos.length; i++) {
 				let htmlDpenendente = document.createElement('tr');
-				htmlDpenendente.innerHTML = '<td>'+arrDebitos[i].nome+'</td><td>'+arrDebitos[i].valor+'</td><td>'+arrDebitos[i].vencimento+'</td>';
+				htmlDpenendente.innerHTML = '<td>'+arrDebitos[i].name+'</td><td>'+arrDebitos[i].value+'</td><td>'+arrDebitos[i].payDate+'</td>';
 				tbody.appendChild(htmlDpenendente);
 			}
 		}

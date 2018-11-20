@@ -3,7 +3,7 @@ let totalDebitos;
 function somaDeDebitosView() {
 	let debitosController = new DebitosController();
 
-	debitosController.listarDebitos().then(listaDebitos => {
+	debitosController.listarDebitosApi().then(listaDebitos => {
 		let calcFinanceira = new CalculadoraFinanceira();
 		totalDebitos = calcFinanceira.somaDeDebitos(listaDebitos);
 		document.querySelector('.total-debitos').innerText = `R$ ${totalDebitos} reais`;

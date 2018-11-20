@@ -19,7 +19,7 @@ class CalculadoraFinanceira {
 	somaDeDebitos(listaDebitos) {
 		let debitoTotal = 0;
 		for(let i = 0; i < listaDebitos.length; i++) {
-			debitoTotal += parseFloat(listaDebitos[i].valor);
+			debitoTotal += parseFloat(listaDebitos[i].value);
 		}
 		return debitoTotal
 	}
